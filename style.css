@@ -5,7 +5,7 @@ body {
 }
 /* NOTE: Main homepage */
 .jumbotron-big {
-background-image: url("Images/bannerbig.jpg");
+background-image: url("Images/BannerBig.jpg");
 background-color: darkgray;
 background-size: cover;
 background-position: center;
@@ -35,7 +35,7 @@ margin-bottom: 0;
 }
 /* NOTE: header for all other pages */
 .smallheader {
-  background-image: url("Images/bannersmall.jpg");
+  background-image: url("Images/BannerSmall.jpg");
   background-size: cover;
   background-position: center;
   background-color: darkgray;
