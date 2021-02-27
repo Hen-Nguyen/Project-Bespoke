@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Vintage Apple Conversion</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+ </head>
+<body>
+<!-- Header -->
+
+<header class=smallheader>
+  <h1><strong>Project Bespoke</strong></h1>
+</header>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+
+   <!-- Brand -->
+     <a class="navbar-brand" href="index.html">Home</a>
+   <!-- Toggler/collapsibe Button -->
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+     <span class="navbar-toggler-icon"></span>
+     </button>
+   <!-- Collapsing -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+     <ul class="navbar-nav">
+<!-- Dropdown -->
+    <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+       Intro Articles</a>
+        <div class="dropdown-menu">
+         <a class="dropdown-item" href="IntroKB.html">Mechanical Keyboards</a>
+         <a class="dropdown-item" href="IntroLight.html">Flashlights</a>
+        </div>
+      </li>
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" id="navbardrop" data-toggle="dropdown">
+          Keyboard Builds</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item disabled" href="KB-PCB.html">PCB Build Guide (SoonTM)</a>
+            <a class="dropdown-item" href="KB-Handwire.html">Handwire Build Guide</a>
+            <a class="dropdown-item active" href="KB-VintageApple.html">Apple Vintage Retrofit</a>
+          </div>
+        </li>
+
+<!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Flashing Controllers</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="flashTeensy.html">Teensy</a>
+            <a class="dropdown-item" href="flashPro.html">Pro Micro</a>
+          </div>
+      </li>
+      <!-- Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                DIY/Design</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item disabled" href="#">More on this later!</a>
+                </div>
+            </li>
+
+<!-- Link -->
+           <li class="nav-item">
+             <a class="nav-link" href="aboutme.html">About Me</a>
+           </li>
+      </ul>
+    </div> <!-- NOTE: end of Dropdow -->
+</nav>
+
+<br>
+<!-- NOTE: beginning of content -->
+<div class="container">
+<div class="bannermain pt-3 text-center">
+<h2>Apple Extended Keyboard II</h2>
+<h3>ADB to USB conversion</h3>
+<a href="Images\RetroApple 1 Completed.jpg"><img class="img-fluid mx-auto d-block pt-2" src="Images\RetroApple 1 Completed.jpg" style="width:600px"alt=""></a>
+<p style="margin-top:25px">Whether it's for the nostalgia or uniqueness, vintage keyboards are great additions to any keyboard collection. For this tutorial, I will be converting an Apple Extended Keyboard II (AEKII) with Mitsumi Alps Clone switches. The AEKII, like many of the vintage Apple boards, uses ADB cables/plugs which are not compatible with modern computers. With this conversion we will be using a micro-controller to make the board compatible with USB and fully programmable.</p>
+</div>
+<!-- NOTE: 2 images and a table -->
+    <div class="row">
+       <div class="phototop mx-auto align-self-center"><a href="Images\Pro Micro Pin Out.png"><img src="Images\Pro Micro Pin Out.png" alt="" style= "width:300px;300px;"></a></div>
+        <div class="col-lg justify-content align-self-center">
+          <ul class="list-group">
+            <li class="list-group-item active"><b>Build Materials</b></li>
+            <li class="list-group-item">Apple Extended Keyboard II</li>
+            <li class="list-group-item">Soldering equipment</li>
+            <li class="list-group-item">Wires Solid or Stranded (22-30awg will do)</li>
+            <li class="list-group-item">Micro Controller (Pro Micro or Teensy 2.0)</li>
+            <li class="list-group-item">Screw driver</li>
+          </ul>
+          </div>
+    </div>
+
+<div class="container pt-2 text-center">
+  <p>
+You can choose either a Pro Micro or a Teensy 2.0 to do this conversion. Pro Micro's are much cheaper, but can be more difficult to program your firmware onto. Teensy's are very easy to program and have great QC, but are more expensive. Please note which one you have, as the process for both are slightly different. I will be using a <b>Pro Micro</b> in this guide.
+</p>
+</div>
+<div class="container-lg pt-2">
+      <div class="row">
+          <div class="col-lg justify-content text-center align-self-center pt-3"><p><h5>Opening the Case</h5>
+
+            *Depending on the condition of your board, You may want to take the keycaps off and clean the plate and caps. I opt to do this every time I do a conversion/restoration. I will be explaining the bare minimum to do the conversion but if you would like to do a wipe down of the board here is a great tutorial on how to disassemble the whole board. <a href="https://www.ifixit.com/Teardown/Apple+Extended+Keyboard+II+Teardown/42138">Disassembly guide.</a><br>
+
+            Disassemble the keyboard. First flip the  keyboard upside down and remove the screw in the middle on the top. Now you will want to use either your fingers or a plastic tab opening tool to remove the top plate. Now you should be able to see whole plate of the keyboard. <br> <br>
+
+            <h5>Prepping for conversion</h5>
+
+            There are two ADB ports on the keyboard. I chose to position the microcontroller on the right side port because there is a hole underneath it that many people will decide to run their cable through. I gently push the ADB port PCB upwards from both sides gently. Once out, you should be able to see the green pcb with solder joints. You can get an idea of the location in the photo below. <br>
+
+            Prep 3 pieces of wire that will from the ADB port PCB to the new microcontroller and begin to warm up your soldering iron. There are many different ways to connect the microcontroller. </p>
+          </div>
+            <div class="mx-auto align-self-center">
+                <div class="phototop mx-auto pt-3"><a href="Images\RetroApple 3 Backside Screw.png"><img src="Images\RetroApple 3 Backside Screw.png" alt="" style= "width:300px;300px;"></a></div>
+                <div class="phototop mx-auto align-self-center"><a href="Images\RetroApple 3.5 Side View.png"><img src="Images\RetroApple 3.5 Side View.png" class="mx-auto img-fluid" alt="" style= "max-width:300px;"></a></div>
+            </div>
+      </div>
+</div>
+  <div class="container-lg pt-2">
+        <div class="row">
+            <div class="phototop mx-auto"><a href="Images\RetroApple 4 Diagram.png"><img src="Images\RetroApple 4 Diagram.png" class="mx-auto img-fluid" alt="" style= "width:450px;450px;"></a></div>
+            <div class="col-lg justify-content text-center align-self-center"><h5>Making the conversion</h5><p>You will now want to start warming up your soldering iron and prep 3 pieces of wire. The diagram to the left is the original instructions for conversion with going from the ADB female socket. The diagram maps the ADB pin 1 (data) to Teensy pin PD0, pin 3 to Teensy VCC(5v), and pin 4 to Teensy GND. If you are using a Pro Micro like me, PD0 will be at Port 3.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTE: Row of three images -->
+    <div class="container-lg pt-4 text-center">
+          <div class="row">
+              <div class="phototop mx-auto align-self-center"><a href="Images\RetroApple 4 Apple Controller.jpg"><img src="Images\RetroApple 4 Apple Controller.jpg" alt="" style= "width:350px;300px;"></a></div>
+              <div class="phototop mx-auto align-self-center"><a href="Images\RetroApple 5 Apple Controller.jpg"><img src="Images\RetroApple 5 Apple Controller.jpg" alt="" style= "width:350px;300px;"></a></div>
+              <div class="phototop mx-auto align-self-center"><a href="Images\RetroApple 6 ProMicro Front.jpg"><img src="Images\RetroApple 6 ProMicro Front.jpg" alt="" style= "width:350px;350px;"></a></div>
+          </div>
+
+          <p class="pt-3"> I found a different approach that would allow for both USB and ADB use. Tapping into the ADB port PCB makes this possible. I solder the wires from the port first and then into the Microcontroller. So which wires connect to what? I was able to take the values from the diagram above and transfer them into the ADB port PCB. Counting from the <b>left.</b> The DATA line is the 2nd wire in the ribbon cable and connects to the PD0 on Teensy or 3 port on ProMicro. The 5V (VCC) line is the 6th wire in the ribbon cable and connects to the VCC on the microcontroller. The GND line is the 8th wire in the ribbon cable and connects to the GND of the microcontroller. I also connected a resistor between the DATA and the VCC ports. I bent the resistor around the controller and tack in with the soldering iron (adding solder in as necessary)</p>
+    </div>
+    <div class="container-lg">
+          <div class="row">
+              <div class="phototop mx-auto align-self-center"><a href="Images\RetroApple 7 ProMicro Back.jpg"><img src="Images\RetroApple 7 ProMicro Back.jpg" alt="" style= "width:350px;300px;"></a></div>
+              <div class="phototop mx-auto align-self-center"><a href="Images\RetroApple 8 Pro Micro Tucked In.jpg"><img src="Images\RetroApple 8 Pro Micro Tucked In.jpg" alt="" style= "width:350px;300px;"></a></div>
+              <div class="phototop mx-auto align-self-center"><a href="Images\RetroApple 10 USB Cable.jpg"><img src="Images\RetroApple 10 USB Cable.jpg" alt="" style= "width:350px;350px;"></a></div>
+          </div>
+    </div>
+
+
+      <div class="container-lg pt-2">
+                <div class="col-lg text-center"><p><h5>Building The Firmware and Flashing the Controller</h5></p><p>Thanks to a handful of community members at Geekhack, it's possible to program the our old keyboard with TMK programming. This has the added benefit of having macros and programming all the keys. Check out the process at <a href="https://github.com/tmk/tmk_keyboard/tree/master/converter/adb_usb">github for ADB_USB</a>. Once you have your keymap saved it's time to flash it onto your <a href="flashPro.html">Pro Micro</a> (AVRdudess) or <a href="flashTeensy.html">Teensy</a> (TeensyLoader) and test it out to make sure that all your keys are working. Afterwards, it's as simple as connecting the USB cable to the controller and routing it outside of the case. Tuck the controller in,  reassemble the case, and now you have a fully programmable vintage keyboard for use with modern computers!</p>
+                </div>
+       </div>
+</div>
+<div class="footer">
+<p style="margin-bottom: 0px">Copyright © 2021 Hank Interactive - All Rights Reserved. </p>
+</div>
+
+</body>
+</html>
