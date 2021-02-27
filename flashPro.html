@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Flashing Pro Micro</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+ </head>
+<body>
+<!-- Header -->
+
+<header class=smallheader>
+  <h1><strong>Project Bespoke</strong></h1>
+</header>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+
+   <!-- Brand -->
+     <a class="navbar-brand" href="index.html">Home</a>
+   <!-- Toggler/collapsibe Button -->
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+     <span class="navbar-toggler-icon"></span>
+     </button>
+   <!-- Collapsing -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+     <ul class="navbar-nav">
+<!-- Dropdown -->
+    <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+       Intro Articles</a>
+        <div class="dropdown-menu">
+         <a class="dropdown-item" href="IntroKB.html">Mechanical Keyboards</a>
+         <a class="dropdown-item" href="IntroLight.html">Flashlights</a>
+        </div>
+      </li>
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Keyboard Builds</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item disabled" href="KB-PCB.html">PCB Build Guide (SoonTM)</a>
+            <a class="dropdown-item" href="KB-Handwire.html">Handwire Build Guide</a>
+            <a class="dropdown-item" href="KB-VintageApple.html">Apple Vintage Retrofit</a>
+          </div>
+        </li>
+
+<!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle active" href="#" id="navbardrop" data-toggle="dropdown">
+          Flashing Controllers</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="flashTeensy.html">Teensy</a>
+            <a class="dropdown-item active" href="flashPro.html">Pro Micro</a>
+          </div>
+      </li>
+      <!-- Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                DIY/Design</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item disabled" href="#">More on this later!</a>
+                </div>
+            </li>
+
+<!-- Link -->
+           <li class="nav-item">
+             <a class="nav-link" href="aboutme.html">About Me</a>
+           </li>
+      </ul>
+    </div>
+</nav>
+<!-- NOTE: body content -->
+<div class="bannermain text-center pt-3">
+  <h2>MAKING YOUR OWN KEYBOARD</h2>
+  <h3>Flashing your Pro Micro</h3>
+  <p>Now that you have your Hex file from the previous section, you will need to program (flash) it onto your Pro Micro. The most sure fire way to do it is on Linux, but there are more Windows users so I will be basing my guide on Windows 10 (I've had no issues using this method). The program we will be using to flash is called AVRDUDESS. (2.4 is the current revision) Download and install it. (If you get a lib error read below)</p>
+
+</div>
+<div class="phoinfo container-lg pt-2">
+      <div class="row">
+          <div class="mx-auto"><a href="Images\Pro Micro AVRDudess Initial Setup.png"><img src="Images\Pro Micro AVRDudess Initial Setup.png" class="mx-auto img-fluid" alt="Pro Micro Initial Setup" style= "width:450px;450px;"></a></div>
+          <div class="col-lg justify-content align-self-center"><p> <strong>Setup</strong> <br>Set programmer (c-) to Atmel AppNote AVR109 Boot Loader <br>Set MCU (-p) to ATmega 32u4 <br>Set Flash to your .Hex file by clicking the "..."
+              </p></div>
+        </div>
+  </div>
+  <div class="phoinfo container-lg pt-2">
+        <div class="row">
+            <div class="mx-auto"><a href="Images\Pro Micro Pin Out.png"><img src="Images\Pro Micro Pin Out.png" alt="Pro Micro Pinout" style= "width:200px;200px;"></a></div>
+            <div class="col-lg justify-content align-self-center"><p>To put your Pro Micro into bootloader mode you have to connect the GND and RST pins together twice quickly shortly after plugging it in.
+                </p></div>
+          </div>
+    </div>
+    <div class="phoinfo container-lg pt-2">
+          <div class="row">
+              <div class="mx-auto"><a href="Images\Pro Micro AVRDudess Port and Program.png"><img src="Images\Pro Micro AVRDudess Port and Program.png" class="mx-auto img-fluid" alt="Pro Micro Port and Program" style= "width:450px;450px;"></a></div>
+              <div class="col-lg justify-content align-self-center"><p>Check to make sure you have correctly done the setup. Click the Port drop down menu. Take note of what COM#'s are listed. The next steps are time sensitive so be quick. Have the mouse over Port drop down menu and put the Pro Micro into bootloader mode.<br><br>Click and select the COM that <strong>wasn't</strong> in the original list and press Program!. You should see some movement and progress bars in the black text box below. When it's done your keyboard should be ready for use and testing!
+                  </p></div>
+            </div>
+      </div>
+
+        <!-- NOTE: Testing your keyboard section -->
+        <div class="testingbox container-lg pt-2">
+                  <div class="col-lg text-center"><h3>Testing your Keyboard</h3><p>It's always good to check your work and make sure that the keys and layers are working and inputting properly. I like to use aquakey test. Here is a link! <a href="https://geekhack.org/index.php?topic=34670.0">Aquakey Test</a></p>
+                </div>
+                <img src="Images\Aquakey test.PNG.png" class="mx-auto d-block" style="width:70%">
+          </div>
+          <div class="footer">
+          <p style="margin-bottom: 0px">Copyright © 2021 Hank Interactive - All Rights Reserved. </p>
+          </div>
+
+
+</body>
+</html>

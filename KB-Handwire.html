@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Handwire Guide</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+<!-- NOTE: smallheader -->
+<header class=smallheader>
+  <h1><strong>Project Bespoke</strong></h1>
+</header>
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+
+   <!-- Brand -->
+     <a class="navbar-brand" href="index.html">Home</a>
+   <!-- Toggler/collapsibe Button -->
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+     <span class="navbar-toggler-icon"></span>
+     </button>
+   <!-- Collapsing -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+     <ul class="navbar-nav">
+<!-- Dropdown -->
+    <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+       Intro Articles</a>
+        <div class="dropdown-menu">
+         <a class="dropdown-item" href="IntroKB.html">Mechanical Keyboards</a>
+         <a class="dropdown-item" href="IntroLight.html">Flashlights</a>
+        </div>
+      </li>
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" id="navbardrop" data-toggle="dropdown">
+          Keyboard Builds</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item disabled" href="KB-PCB.html">PCB Build Guide (SoonTM)</a>
+            <a class="dropdown-item active" href="KB-Handwire.html">Handwire Build Guide</a>
+            <a class="dropdown-item" href="KB-VintageApple.html">Apple Vintage Retrofit</a>
+          </div>
+        </li>
+
+<!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Flashing Controllers</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="flashTeensy.html">Teensy</a>
+            <a class="dropdown-item" href="flashPro.html">Pro Micro</a>
+          </div>
+      </li>
+      <!-- Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                DIY/Design</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item disabled" href="#">More on this later!</a>
+                </div>
+            </li>
+
+<!-- Link -->
+           <li class="nav-item">
+             <a class="nav-link" href="aboutme.html">About Me</a>
+           </li>
+      </ul>
+    </div>
+</nav>
+<!-- NOTE: Introduction -->
+<div class="container-lg text-center pt-3">
+            <h2>Handwire Guide</h2>
+            <p>Over the past few years or so, I have handwired over 10 boards. Working to find new methods to make the process more efficient and cleaner every time. This guide will be the end result of over 2 years in experimentation.<br><br>
+
+            I came into my first handwire build with no prior soldering experience. I had desoldered a board and read/watched others to learn the process. My first project was messy to say the least, but it worked and I was proud that I put it together from scratch. It can really feel daunting at the beginning so make sure you take your time and focus on the build journey rather than a race to the end. <br>
+<!-- NOTE: List of materials and image of completed board -->
+          <div class="row">
+            <div class="phototop  mx-auto align-self-center"><a href="Images\HW- 7 Completed Back slant.jpg"><img src="Images\HW- 7 Completed Back slant.jpg" class="mx-auto img-fluid" alt="Photo of wiring" style= "width:518px;518px;"></a></div>
+            <div class="col-lg mx-auto justify-content align-self-center" style= "width:450px;450px;">
+              <ul class="list-group">
+                <li class="list-group-item active"><b>Materials Needed</b></li>
+                <li class="list-group-item">1N4148 Switching Signal Diodes</li>
+                <li class="list-group-item">Round Nose Pliers (usually used for jewelry)</li>
+                <li class="list-group-item">27 AWG Solderable Enameled Magnet Wire</li>
+                <li class="list-group-item">Micro Controller (Pro Micro or Teensy 2.0)</li>
+                <li class="list-group-item">Flush Cutters</li>
+                <li class="list-group-item">24-26 AWG Solid Core wire</li>
+                <li class="list-group-item">Keyboard materials (switches, plate, case, standoffs, screws)</li>
+              </ul>
+            </div>
+          </div>
+            <br>
+
+
+            How does handwiring work? Though it may seem complicated at first, they are actually quite simple. The backside of each keyboard switch has two pins. The left side pins are normally connected in columns. The right side pins are normally connected in rows. This creates a matrix. All the columns and rows are then connected to a microcontroller in unique ports. When a specific key is pressed, it will send 2 signals, one from a column and one from a row, to the controller (kind of like how you would play battleship!). From there the controller knows the exact location that was activated and can use the keymap you program into it to input whatever you wanted to happen when that key is pressed. <br>
+
+            </p>
+
+          <!-- NOTE: building a roadmap Preparation -->
+<div class="contentrow row">
+          <div class="col-lg justify-content text-center align-self-center pt-3">
+            <h5>Drafting Your Roadmap</h5>
+            <p>Having a visual roadmap that you can refer to during (potentially messy) building process can be immensely helpful. The wires going into the microcontroller can become a tangly mess, and knowing exactly where the the rows and columns go into which ports can save you time and frustration during the build and programming process. When designing your wire routes, idealy, you would like the columns and rows to be similar in size. Maps can be as simple has hand drawn drafts, to microsoft paint, to auto-generated outlines. <br> In order to get auto-generated wiring routes, I use <a href="http://www.keyboard-layout-editor.com/#/">Keyboard Layout Editor</a> to design the keyboard layout and plug that into <a href="https://kbfirmware.com/">kbfirmware</a> to get the columns and rows mapped out. It's also a great tool to compile the programming of the board later in the build. With the columns and rows setup, you can grab an image of your microcontroller and trace your connections as you go.
+            </p>
+          </div>
+          <div class=" mx-auto align-self-center"><a href="Images\HW- 0 Handwiring mapping.png"><img src="Images\HW- 0 Handwiring mapping.png" class="mx-auto img-fluid"  alt="Wiring Diagram" style= "width:500px;500px;"></a></div>
+</div>
+
+<!-- NOTE: Switches -->
+<div class="contentrow row">
+          <div class="col-lg justify-content text-center align-self-center">
+            <h5>Plate and Switches</h5>
+            <p>Orient the plate so that the top/front is facing you, then push the switches in with the logo facing north/up. Depending on what plate material you are using, the switches may or may not snap in. Most metal plates will have a snap fit (1.5mm thick). I am using a 3mm acrylic plate for this build, so I will need to hot glue the switches to the plate for stability.
+
+           </div>
+          <div class=" mx-auto align-self-center"><a href="Images\HW- 2 Glued Switches.jpg"><img src="Images\HW- 2 Glued Switches.jpg" class="mx-auto img-fluid"  alt="Glued Switches on Plate" style= "width:500px;500px;"></a></div>
+</div>
+
+<!-- NOTE: Diodes -->
+
+<div class="contentrow row">
+       <div class="col-xl justify-content text-center align-self-center pt-3">
+        <h5>Diodes</h5>
+        <p> When I initially researched the process for soldering the diodes to the switch pin was through tinning. Tinning (melting a drop of soldering wire onto the pin), then attaching the diode leg to the melted drop of the solder on the pin. The process was very hard to do consistently and had an added risk of overheating the solder/pin. I found that by creating loops in the diode legs using a set of rounded pliers, I was able to make a much more secure and clean solderinSg connection. You will want to pre-loop as many diodes as you have switches. Take all of those looped diodes that have been prepared and place them around the left side pin closest to the bottom of the switch possible. I will orient the bottom leg of the diode to stay put using the switch positioned below it.</p>
+       </div>
+      <div class="phototop  mx-auto align-self-center"><a href="Images\HW- 1.5 PinPliers.jpg"><img src="Images\HW- 1.5 PinPliers.jpg" class="mx-auto img-fluid" alt="Looped Diode" style= "width:350px;350px;"></a></div>
+      <div class="phototop  mx-auto align-self-center"><a href="Images\Loopdy Loop.gif"><img src="Images\Loopdy Loop.gif" class="mx-auto img-fluid" alt="Looping Diode GIF" style= "height:350px;"></a></div>
+</div>
+<!-- NOTE: Soldering -->
+          <div class="contentrow row">
+                    <div class="col-xl justify-content text-center align-self-center pt-3">
+                      <h5>Soldering</h5>
+                      <p> Once you have your diodes setup, now you can solder them using the traditional through hole method. Hold the iron to the pin and loop for a couple of seconds, then touch some solder to the tip of the iron. It will quickly flow into the loop. Make sure to put just enough that the entire inside of the loop is covered, then remove the iron and solder. <br>
+                      </p>
+                    </div>
+                    <div class="phototop  mx-auto align-self-center"><a href="Images\HW- 3 Diode Switch setup.jpg"><img src="Images\HW- 3 Diode Switch setup.jpg" class="mx-auto img-fluid" alt="Diode Switch Setup" style= "width:350px;350px;"></a></div>
+                    <div class="phototop  mx-auto align-self-center"><a href="Images\HW- 4 Diodes Soldered.jpg"><img src="Images\HW- 4 Diodes Soldered.jpg" class="mx-auto img-fluid" alt="Diode Switch Soldered" style= "height:350px;"></a></div>
+          </div>
+
+<!-- NOTE: Rows -->
+          <div class="contentrow row">
+                    <div class="col-lg justify-content text-center align-self-center">
+                      <h5>Rows</h5>
+                      <p>Once you have all the diodes soldered, you will need to connect them all in a row. I've found the best way to do this is to take your round nose pliers and make 90 degree turns at the same height on all of the diode legs in that one row. I will make an upward bend at the point of contacts so that they stay in position on their own. This makes it really easy to heat up both parts and add solder. I will hold the soldering iron to the intersection of the diode legs (from below) and add some solder to connect them. Repeat until you have have finished connecting all the rows.
+
+                     </div>
+                    <div class=" mx-auto align-self-center"><a href="Images\HW- 5 Connecting Diodes.jpg"><img src="Images\HW- 5 Connecting Diodes.jpg" class="mx-auto img-fluid" alt="Connecting Diodes" style= "width:500px;500px;"></a></div>
+          </div>
+<!-- NOTE: Columns -->
+
+          <div class="contentrow row">
+              <div class="col-lg justify-content text-center align-self-center">
+                      <h5>Columns</h5>
+                      <p>Columns used to be the most meticulous part of the build for me. I initially started by using a wire stripper, but trying to get only small 2mm sections cut out was very hard to do. I then switched to doing the razor blade method for the middle switches, but that meant 3-4 cuts into the insulation per pin (it's a lot...).
+                     <br>
+                    I recently started using Solderable Enameled Magnet wire and it has made the process much easier and cleaner. There is no need to strip any insulation. Grab your wiring map that you saved from earlier and make sure you follow it. I like to loop the magnet wire around the initial and end pins twice and loop once for the middle pins. I use my round nose pliers and make the initial loop and tighten it around the first pin. Then make another loop again and hand tighten it a little bit more before moving on the other pins. Repeat until you are at the last pin!<br>
+
+                    When it's time to solder them in, add some solder to the tip of the iron and hold it against the wrapped pin. You will see/smell the insulation burning off and see the solder adhere to the pin and the wires. Add a small bit of solder for good measure and repeat the process until you have all of them done.<br> </p>
+              </div>
+              <div class=" mx-auto align-self-center"><a href="Images\HW- 6 Connecting Columns.jpg"><img src="Images\HW- 6 Connecting Columns.jpg" class="mx-auto img-fluid" alt="Connecting Columns" style= "width:500px;500px;"></a></div>
+            </div>
+<!-- NOTE: ************ -->
+            <div class="col-lg justify-content text-center align-self-center">
+                      <h5>Wiring the Microcontroller</h5><br>
+                      <p>Open up MS Paint and your file of the micro controller/wiring diagram or pull out your printout and set it in front of you. With the usb port facing down towards the switches. I like to go from left-right on the columns and from F0 downwards on the Teensy (A3 on Pro Micro). Marking my sheet as I go. I personally like using stranded wire on these because of their flexibility for tucking in wires. Measure the distance in wire and add half an inch then cut and strip. Make a small hook on one side and use the hook to keep the wire in place against the blob at the end column pins. Solder it in by touching the iron to the hooked in wire and the blob (add some solder for good measure).Do the same of the rest of the columns and the diodes. <br> Note: Diodes need to be connected below the orange section. <br><br> Soldering the wires into the Teensy should be pretty routine if you have a helping hand tool. Set it up so the wire is coming up through the bottom. Hold the iron to the the wire/hole and add solder from the opposite side. Solder should flow into the hole and connect the wire. Repeat until done. <br> Not pro tip: If you don't have helping hands you can use some books to keep the controller and wire in place. You can also bend the wire over the edge of the controller to keep it in place.
+                      </p>
+              <div class="row">
+
+                    <div class="phototop  mx-auto align-self-center"><a href="Images\HW- 7 Completed Back slant.jpg"><img src="Images\HW- 7 Completed Back slant.jpg" class="mx-auto img-fluid" alt="Rear Wiring Angled" style= "width:350px;450px;"></a></div>
+                    <div class="phototop  mx-auto align-self-center"><a href="Images\HW- 8 Completed Back.jpg"><img src="Images\HW- 8 Completed Back.jpg" class="mx-auto img-fluid" alt="Rear Wiring " style= "width:350px;450px;"></a></div>
+                    <div class="phototop  mx-auto align-self-center"><a href="Images\HW- 9 Completed Front.jpg"><img src="Images\HW- 9 Completed Front.jpg" class="mx-auto img-fluid" alt="Finished Photo" style= "width:350px;450px;"></a></div>
+
+              </div>
+            </div>
+
+</div>
+<div class="footer">
+<p style="margin-bottom: 0px">Copyright © 2021 Hank Interactive - All Rights Reserved. </p>
+</div>
+
+</body>
+</html>

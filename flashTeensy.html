@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Flashing Teensy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+<!-- NOTE: smallheader -->
+<header class=smallheader>
+  <h1><strong>Project Bespoke</strong></h1>
+</header>
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+
+   <!-- Brand -->
+     <a class="navbar-brand" href="index.html">Home</a>
+   <!-- Toggler/collapsibe Button -->
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+     <span class="navbar-toggler-icon"></span>
+     </button>
+   <!-- Collapsing -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+     <ul class="navbar-nav">
+<!-- Dropdown -->
+    <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+       Intro Articles</a>
+        <div class="dropdown-menu">
+         <a class="dropdown-item" href="IntroKB.html">Mechanical Keyboards</a>
+         <a class="dropdown-item" href="IntroLight.html">Flashlights</a>
+        </div>
+      </li>
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Keyboard Builds</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item disabled" href="KB-PCB.html">PCB Build Guide (SoonTM)</a>
+            <a class="dropdown-item" href="KB-Handwire.html">Handwire Build Guide</a>
+            <a class="dropdown-item" href="KB-VintageApple.html">Apple Vintage Retrofit</a>
+          </div>
+        </li>
+
+<!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle active" href="#" id="navbardrop" data-toggle="dropdown">
+          Flashing Controllers</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item active" href="flashTeensy.html">Teensy</a>
+            <a class="dropdown-item" href="flashPro.html">Pro Micro</a>
+          </div>
+      </li>
+      <!-- Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                DIY/Design</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item disabled" href="#">More on this later!</a>
+                </div>
+            </li>
+
+<!-- Link -->
+           <li class="nav-item">
+             <a class="nav-link" href="aboutme.html">About Me</a>
+           </li>
+      </ul>
+    </div>
+</nav>
+<!-- NOTE: BODY  -->
+<div class="container">
+
+<div class="bannermain pt-3 text-center">
+  <h2>MAKING YOUR OWN KEYBOARD</h2>
+  <h3>Flashing your Teensy</h3>
+  <p>Now that you have your Hex file from the previous section, you will need to program (flash) it onto your Teensy. Lucky PJRC has a really easy to use flashing program called Teensy Loader. You will want to head to https://www.pjrc.com/teensy/loader.html to download it on your specific operating system and save it on your computer. Once saved; open it up (Should be named Teensy.exe)</p>
+
+</div>
+<div class="phoinfo container-lg pt-2">
+      <div class="row">
+          <div class="phototop mx-auto"> <a href="Images\Teensy Load Initial.PNG.png"><img src="Images\Teensy Load Initial.PNG.png" alt="Teensy Initial" style= "width:250px;250px;"></a></div>
+          <div class="col-lg justify-content align-self-center"><p> The Teensy Loader will look like this when opened. Now you are going to want to upload your file by clicking on the icon on the left side that looks like a sheet of printed paper. Select the .Hex file containing your keymap.
+              </p></div>
+        </div>
+  </div>
+  <div class="phoinfo container-lg pt-2">
+        <div class="row">
+            <div class="phototop mx-auto"><a href="Images\Teensy Connected.PNG.png"><img src="Images\Teensy Connected.PNG.png" alt="Teensy Connected" style= "width:250px;250px;"></a></div>
+            <div class="col-lg justify-content align-self-center"><p>Go ahead and connect your Teensy to you computer via USB-A to USB-Mini connector. Press the button on front of your Teensy to put it in bootloader mode and wait for the screen look like this (colors are darker and the PCB is more defined).
+                </p></div>
+          </div>
+    </div>
+    <div class="phoinfo container-lg pt-2">
+          <div class="row">
+              <div class="phototop mx-auto"><a href="Images\Teensy Download Complete.PNG.png"><img src="Images\Teensy Download Complete.PNG.png" alt="Teensy Download" style= "width:250px;250px;"></a></div>
+              <div class="col-lg justify-content align-self-center"><p>Now click the downward point arrow to Program the Teensy! When done it should say, "Download Complete"
+                  </p></div>
+            </div>
+      </div>
+      <div class="phoinfo container-lg pt-2">
+            <div class="row">
+                <div class="phototop mx-auto"><a href="Images\Teensy Reboot Okay.PNG.png"><img src="Images\Teensy Reboot Okay.PNG.png" alt="Teensy Done" style= "width:250px;250px;"></a></div>
+                <div class="col-lg justify-content align-self-center"><p>Last thing to do is to reboot your Teensy by pressing the right arrow. Afterwards your keyboard should be fully functional and ready for testing!
+                    </p></div>
+              </div>
+        </div>
+        <!-- NOTE: Testing your keyboard section -->
+        <div class="testingbox container-lg pt-2">
+                  <div class="col-lg text-center"><h3>Testing your Keyboard</h3><p>It's always good to check your work and make sure that the keys and layers are working and inputting properly. I like to use aquakey test. Here is a link! <a href="https://geekhack.org/index.php?topic=34670.0">Aquakey Test</a></p>
+                </div>
+                <img src="Images\Aquakey test.PNG.png" class="mx-auto d-block" style="width:70%">
+          </div>
+        </div>
+        <div class="footer">
+        <p style="margin-bottom: 0px">Copyright © 2021 Hank Interactive - All Rights Reserved. </p>
+        </div>
+
+
+  </body>
+</html>
