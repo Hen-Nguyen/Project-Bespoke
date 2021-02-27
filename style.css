@@ -172,6 +172,7 @@ transition: all 1s ease;
     width: 390px;
     margin: 10px;
     padding: 5px;
+    box-shadow: none;
   }
   .card-title {
     font-size: 100%;
